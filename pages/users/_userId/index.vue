@@ -21,10 +21,11 @@
         </v-card-text>
       </v-card>
     </v-col>
+
     <v-col cols="12" sm="6">
       <v-card>
         <v-card-text>
-          <v-card-title>
+          <v-card-title class="text-underline">
             Photo Albums
           </v-card-title>
           <v-list>
@@ -34,9 +35,7 @@
               :to="`/users/${user.id}/albums/${album.id}`"
             >
               <v-list-item-content>
-                <span class="text-capitalize">
-                  {{ album.title }}
-                </span>
+                <u>{{ album.title }}</u>
               </v-list-item-content>
             </v-list-item>
           </v-list>

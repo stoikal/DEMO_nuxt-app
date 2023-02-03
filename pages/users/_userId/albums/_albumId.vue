@@ -14,6 +14,7 @@
       <v-img
         :lazy-src="require('~/assets/images/placeholder.png')"
         :src="photo.thumbnailUrl"
+        height="150"
       />
     </v-col>
   </v-row>
