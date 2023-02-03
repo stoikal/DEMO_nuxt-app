@@ -1,13 +1,31 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center">
     <v-col cols="12">
       <v-breadcrumbs :items="breadcrumbs" />
     </v-col>
-    <v-col cols="12" sm="8" md="6">
+    <v-col cols="12" sm="6">
+      <v-card>
+        <v-card-text>
+          <table>
+            <tbody>
+              <tr
+                v-for="(value, key) in userInfo"
+                :key="key"
+              >
+                <td>{{ key }}</td>
+                <td>:</td>
+                <td>{{ value }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </v-card-text>
+      </v-card>
+    </v-col>
+    <v-col cols="12" sm="6">
       <v-card>
         <v-card-text>
           <v-card-title>
-            Album List
+            Photo Albums
           </v-card-title>
           <v-list>
             <v-list-item
@@ -16,7 +34,9 @@
               :to="`/users/${user.id}/albums/${album.id}`"
             >
               <v-list-item-content>
-                {{ album.title }}
+                <span class="text-capitalize">
+                  {{ album.title }}
+                </span>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -58,7 +78,22 @@ export default {
           exact: true
         }
       ]
+    },
+    userInfo () {
+      return {
+        Name: this.user.name,
+        Phone: this.user.phone,
+        Email: this.user.email,
+        Company: this.user.company.name
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+table td:nth-child(2) {
+  width: 40px;
+  text-align: center;
+}
+</style>
