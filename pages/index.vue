@@ -1,5 +1,8 @@
 <template>
   <v-row justify="center" align="center">
+    <v-col cols="12">
+      <v-breadcrumbs :items="breadcrumbs" />
+    </v-col>
     <v-col cols="12" sm="8" md="6">
       <v-card>
         <v-card-title>
@@ -32,6 +35,15 @@ export default {
     return {
       users
     }
-  }
+  },
+  data: () => ({
+    breadcrumbs: [
+      {
+        text: 'Users',
+        to: '/',
+        exact: true
+      }
+    ]
+  })
 }
 </script>

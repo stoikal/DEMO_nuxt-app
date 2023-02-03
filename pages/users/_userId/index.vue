@@ -1,5 +1,8 @@
 <template>
   <v-row justify="center" align="center">
+    <v-col cols="12">
+      <v-breadcrumbs :items="breadcrumbs" />
+    </v-col>
     <v-col cols="12" sm="8" md="6">
       <v-card>
         <v-card-text>
@@ -25,7 +28,7 @@
 
 <script>
 export default {
-  name: 'UserPage',
+  name: 'AlbumsPage',
   async asyncData ({ $axios, params }) {
     const [
       user,
@@ -37,7 +40,24 @@ export default {
 
     return {
       user,
-      albums
+      albums,
+      userId: params.userId
+    }
+  },
+  computed: {
+    breadcrumbs () {
+      return [
+        {
+          text: 'Users',
+          to: '/',
+          exact: true
+        },
+        {
+          text: this.user.name,
+          to: `/users/${this.userId}`,
+          exact: true
+        }
+      ]
     }
   }
 }
