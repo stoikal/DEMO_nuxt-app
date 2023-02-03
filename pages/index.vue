@@ -53,7 +53,7 @@ export default {
   }),
   methods: {
     handleShow () {
-      this.$store.dispatch('snackbar/enqueue', { message: 'Coming soon...', type: 'info' })
+      this.$snackbar({ message: 'Coming soon...', type: 'info' })
     }
   }
 }

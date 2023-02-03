@@ -1,7 +1,6 @@
 <template>
   <v-app dark>
     <v-app-bar
-      fixed
       app
     >
       <v-toolbar-title>{{ title }}</v-toolbar-title>
