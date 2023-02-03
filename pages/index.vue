@@ -1,13 +1,19 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12">
-      <v-breadcrumbs :items="breadcrumbs" />
+      <v-row align="center">
+        <v-col>
+          <h1>User List</h1>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn @click="handleShow">
+            Add User
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-col>
     <v-col cols="12">
       <v-card>
-        <v-card-title>
-          User List
-        </v-card-title>
         <v-card-text>
           <v-data-table
             :headers="tableHeaders"
@@ -37,13 +43,6 @@ export default {
     }
   },
   data: () => ({
-    breadcrumbs: [
-      {
-        text: 'Users',
-        to: '/',
-        exact: true
-      }
-    ],
     tableHeaders: [
       { text: 'Name', value: 'name' },
       { text: 'Email', value: 'email' },
@@ -51,6 +50,11 @@ export default {
       { text: 'Company', value: 'company.name' },
       { text: 'City', value: 'address.city' }
     ]
-  })
+  }),
+  methods: {
+    handleShow () {
+      this.$store.dispatch('snackbar/enqueue', { message: 'Coming soon...', type: 'info' })
+    }
+  }
 }
 </script>

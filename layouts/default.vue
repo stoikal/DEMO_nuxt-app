@@ -16,12 +16,14 @@
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    <SnackbarQueue />
   </v-app>
 </template>
 
 <script>
 export default {
   name: 'DefaultLayout',
+  // components: { SnackbarQueue }
   data () {
     return {
       title: 'App'

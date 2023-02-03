@@ -12,7 +12,7 @@
       lg="2"
     >
       <v-img
-        :lazy-src="require('@/assets/images/placeholder.png')"
+        :lazy-src="require('~/assets/images/placeholder.png')"
         :src="photo.thumbnailUrl"
       />
     </v-col>
