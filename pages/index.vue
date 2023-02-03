@@ -3,28 +3,23 @@
     <v-col cols="12">
       <v-breadcrumbs :items="breadcrumbs" />
     </v-col>
-    <v-col cols="12" sm="8" md="6">
+    <v-col cols="12">
       <v-card>
         <v-card-title>
           User List
         </v-card-title>
         <v-card-text>
-          <v-list>
-            <v-list-item
-              v-for="user in users"
-              :key="user.id"
-              :to="`/users/${user.id}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title>
-                  {{ user.name }}
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  {{ user.email }}
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
+          <v-data-table
+            :headers="tableHeaders"
+            :items="users"
+          >
+            <!-- eslint-disable-next-line vue/valid-v-slot -->
+            <template #item.name="{ item }">
+              <NuxtLink :to="`/users/${item.id}`">
+                <div>{{ item.name }}</div>
+              </NuxtLink>
+            </template>
+          </v-data-table>
         </v-card-text>
       </v-card>
     </v-col>
@@ -48,6 +43,13 @@ export default {
         to: '/',
         exact: true
       }
+    ],
+    tableHeaders: [
+      { text: 'Name', value: 'name' },
+      { text: 'Email', value: 'email' },
+      { text: 'Phone', value: 'phone' },
+      { text: 'Company', value: 'company.name' },
+      { text: 'City', value: 'address.city' }
     ]
   })
 }
