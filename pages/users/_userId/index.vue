@@ -80,11 +80,14 @@ export default {
       ]
     },
     userInfo () {
+      const { street, suite, city, zipcode } = this.user.address
       return {
         Name: this.user.name,
         Phone: this.user.phone,
         Email: this.user.email,
-        Company: this.user.company.name
+        Company: this.user.company.name,
+        Address: `${street} ${suite}, ${city}`,
+        'Zip Code': zipcode
       }
     }
   }
