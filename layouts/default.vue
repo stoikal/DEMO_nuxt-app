@@ -22,7 +22,6 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  // components: { SnackbarQueue }
   data () {
     return {
       title: 'App'
