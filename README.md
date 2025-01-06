@@ -72,3 +72,8 @@ More information about the usage of this directory in [the documentation](https:
 ## Externals APIs
 
 https://jsonplaceholder.typicode.com
+
+
+## Known Errors
+
+https://github.com/nuxt/vercel-builder/issues/805
